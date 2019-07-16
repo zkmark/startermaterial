@@ -9,6 +9,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,9 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     LayoutModule,
 		BrowserAnimationsModule,//Material
-		MaterialModule
+		FormsModule,
+		MaterialModule,
+		ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

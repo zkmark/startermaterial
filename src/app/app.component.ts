@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import 'hammerjs';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,20 @@ import 'hammerjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'startermaterial';
+	title = 'startermaterial';
+	
+	mode : string;
+	opened: boolean = false;
+
+	openSideNav(mode: string = 'over'){
+		this.mode = mode;
+
+		this.opened = !this.opened;
+
+	}
+
+	closeSideNav(){
+		this.opened = false
+	}
+
 }

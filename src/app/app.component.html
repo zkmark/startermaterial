@@ -1,3 +1,130 @@
-<app-main-menu>
-	<app-home></app-home>
-</app-main-menu>
+<!--
+	<app-main-menu>
+		<app-home></app-home>
+	</app-main-menu>
+
+
+<mat-toolbar color="primary" class="container-fluid">
+	
+  <mat-toolbar-row class="container-fluid">
+		<a  mat-button [routerLink]="['/']">
+			Angular Starter App
+		</a>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+
+		
+		<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+
+		<mat-menu #animals="matMenu">
+			<button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+		</mat-menu>
+
+		<mat-menu #invertebrates="matMenu">
+			<button mat-menu-item>Insects</button>
+			<button mat-menu-item>Molluscs</button>
+			<button mat-menu-item>Crustaceans</button>
+			<button mat-menu-item>Corals</button>
+			<button mat-menu-item>Arachnids</button>
+			<button mat-menu-item>Velvet worms</button>
+			<button mat-menu-item>Horseshoe crabs</button>
+		</mat-menu>
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+<br><br>
+-->
+
+<mat-sidenav-container class="example-container">
+
+	<mat-sidenav #sidenav [(mode)]='mode' [(opened)]="opened" (closed)='opened=false'>
+
+		<mat-toolbar color="primary">Menu</mat-toolbar>
+		<!---<button mat-button (click)="sidenav.toggle()">Toggle</button> -->
+
+		<mat-nav-list>
+			<a mat-list-item href="#">Link 1</a>
+
+			<a mat-list-item>Link 2</a>
+
+			<mat-accordion>
+				<mat-expansion-panel>
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							Personal data
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+
+					<a mat-list-item href="#">Link 3</a>
+
+				</mat-expansion-panel>
+			</mat-accordion>
+
+			<mat-accordion>
+				<mat-expansion-panel>
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							Sub Menu
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+
+					<mat-accordion>
+						<mat-expansion-panel>
+							<mat-expansion-panel-header>
+								<mat-panel-title>
+									Sub Sub
+								</mat-panel-title>
+							</mat-expansion-panel-header>
+
+							<a mat-list-item href="#">Link 3</a>
+							
+						</mat-expansion-panel>
+					</mat-accordion>
+					
+				</mat-expansion-panel>
+			</mat-accordion>
+
+
+			<a mat-list-item href="#">Link 3</a>
+		</mat-nav-list>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+
+		<mat-toolbar color="primary" class="container-fluid">
+
+			<mat-toolbar-row class="container-fluid">
+				<a mat-button [routerLink]="['/']">
+					Angular Starter App
+				</a>
+				<span class="example-spacer"></span>
+
+
+				<button mat-button>
+					<mat-icon class="example-icon" aria-hidden="false" (click)="openSideNav('over')">
+						menu
+					</mat-icon>
+				</button>
+
+				<mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+
+
+				<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+
+				<mat-menu #animals="matMenu">
+					<button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+				</mat-menu>
+
+				<mat-menu #invertebrates="matMenu">
+					<button mat-menu-item>Insects</button>
+					<button mat-menu-item>Molluscs</button>
+					<button mat-menu-item>Crustaceans</button>
+				</mat-menu>
+
+			</mat-toolbar-row>
+		</mat-toolbar>
+
+	</mat-sidenav-content>
+</mat-sidenav-container>

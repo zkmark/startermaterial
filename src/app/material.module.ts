@@ -92,6 +92,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSidenavModule,
     MatIconModule,
 		MatListModule,
+		MatRadioModule,
+		
   ],
 })
 export class MaterialModule {}
