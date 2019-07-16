@@ -53,11 +53,11 @@
 				<mat-expansion-panel>
 					<mat-expansion-panel-header>
 						<mat-panel-title>
-							Personal data
+							SubMenu 3
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 
-					<a mat-list-item href="#">Link 3</a>
+					<a mat-list-item href="#">SubMenu 3.1</a>
 
 				</mat-expansion-panel>
 			</mat-accordion>
@@ -66,7 +66,7 @@
 				<mat-expansion-panel>
 					<mat-expansion-panel-header>
 						<mat-panel-title>
-							Sub Menu
+							Sub Menu 4
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 
@@ -74,11 +74,11 @@
 						<mat-expansion-panel>
 							<mat-expansion-panel-header>
 								<mat-panel-title>
-									Sub Sub
+									Sub Menu 4.1
 								</mat-panel-title>
 							</mat-expansion-panel-header>
 
-							<a mat-list-item href="#">Link 3</a>
+							<a mat-list-item href="#">Sub Menu 4.1.1</a>
 							
 						</mat-expansion-panel>
 					</mat-accordion>
@@ -96,22 +96,27 @@
 		<mat-toolbar color="primary" class="container-fluid">
 
 			<mat-toolbar-row class="container-fluid">
-				<a mat-button [routerLink]="['/']">
-					Angular Starter App
-				</a>
-				<span class="example-spacer"></span>
 
+				<div class="col px-0">
+					<a mat-button [routerLink]="['/']">
+						Angular Starter App
+					</a>
+		
+					<span class="example-spacer"></span>
+				</div>
+				
+				<div class="flex-row ml-md-auto">
 
-				<button mat-button>
+					<button mat-button class="d-inline-block d-md-none" >
 					<mat-icon class="example-icon" aria-hidden="false" (click)="openSideNav('over')">
 						menu
 					</mat-icon>
 				</button>
 
-				<mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
 
-
-				<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+				<button class="d-none d-md-flex" mat-button [matMenuTriggerFor]="animals">
+					Animal index
+				</button>
 
 				<mat-menu #animals="matMenu">
 					<button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
@@ -123,8 +128,13 @@
 					<button mat-menu-item>Crustaceans</button>
 				</mat-menu>
 
+				</div>
+
+				
+
 			</mat-toolbar-row>
 		</mat-toolbar>
 
 	</mat-sidenav-content>
 </mat-sidenav-container>
+
