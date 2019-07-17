@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { SidenavItemComponent } from './components/menus/sidenav-item/sidenav-item.component';
 
 
 
@@ -19,7 +20,8 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
     AppComponent,
     MainMenuComponent,
     HomeComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    SidenavItemComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@
 		<mat-toolbar color="primary">Menu</mat-toolbar>
 		<!---<button mat-button (click)="sidenav.toggle()">Toggle</button> -->
 
+		<!--
 		<mat-nav-list>
 			<a mat-list-item href="#">Link 1</a>
 
@@ -56,6 +57,55 @@
 
 			<a mat-list-item href="#">Link 3</a>
 		</mat-nav-list>
+		-->
+		 
+		<mat-nav-list>
+			<ng-container *ngFor="let item of navItems">
+
+				
+				
+				<mat-accordion *ngIf="item.children && item.children.length > 0">
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								{{item.displayName}}
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+
+						<app-sidenav-item #menu [items]="item.children"></app-sidenav-item>
+
+					</mat-expansion-panel>
+				</mat-accordion>
+				
+				<ng-container *ngIf="!item.children || item.children.length === 0">
+					<a mat-list-item [routerLink]="item.route">
+						{{item.displayName}}
+					</a>
+				</ng-container>
+				
+			</ng-container>
+		</mat-nav-list>
+
+		<!--
+		<mat-toolbar class="" color="primary">
+			<span *ngFor="let item of navItems">
+
+				<span *ngIf="item.children && item.children.length > 0">
+					<button mat-button [matMenuTriggerFor]="menu.childMenu" [disabled]="item.disabled">
+						{{item.displayName}}
+					</button>
+					<app-sidenav-item #menu [items]="item.children"></app-sidenav-item>
+				</span>
+
+				<span *ngIf="!item.children || item.children.length === 0">
+					<a mat-button [routerLink]="item.route">
+						{{item.displayName}}
+					</a>
+				</span>
+			</span>
+		</mat-toolbar>
+		-->
+
 	</mat-sidenav>
 
 	<mat-sidenav-content>
