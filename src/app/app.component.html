@@ -2,39 +2,6 @@
 	<app-main-menu>
 		<app-home></app-home>
 	</app-main-menu>
-
-
-<mat-toolbar color="primary" class="container-fluid">
-	
-  <mat-toolbar-row class="container-fluid">
-		<a  mat-button [routerLink]="['/']">
-			Angular Starter App
-		</a>
-    <span class="example-spacer"></span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-
-		
-		<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
-
-		<mat-menu #animals="matMenu">
-			<button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
-		</mat-menu>
-
-		<mat-menu #invertebrates="matMenu">
-			<button mat-menu-item>Insects</button>
-			<button mat-menu-item>Molluscs</button>
-			<button mat-menu-item>Crustaceans</button>
-			<button mat-menu-item>Corals</button>
-			<button mat-menu-item>Arachnids</button>
-			<button mat-menu-item>Velvet worms</button>
-			<button mat-menu-item>Horseshoe crabs</button>
-		</mat-menu>
-
-	</mat-toolbar-row>
-</mat-toolbar>
-
-<br><br>
 -->
 
 <mat-sidenav-container class="example-container">
@@ -106,17 +73,15 @@
 						<mat-icon class="example-icon" aria-hidden="false">
 							menu
 						</mat-icon>
-					</button>
-		
-					<!---<span class="example-spacer"></span> -->
+					</button>		
 				</div>
 				
 				<div class="row d-none d-md-flex ml-md-auto">
 
+					<!-- 
 					<a mat-button href="https://www.facebook.com/">
 							<i class="fab fa-facebook-f"></i>
 					</a>
-
 
 					<a mat-button [matMenuTriggerFor]="animals">
 						Animal index
@@ -131,12 +96,33 @@
 						<a mat-menu-item>Molluscs</a>
 						<a mat-menu-item>Crustaceans</a>
 					</mat-menu>
+					-->
+					
+					<mat-toolbar class="" color="primary">
+						<span *ngFor="let item of navItems">
+							<!-- Handle branch node buttons here -->
+							<span *ngIf="item.children && item.children.length > 0">
+								<button mat-button [matMenuTriggerFor]="menu.childMenu" [disabled]="item.disabled">
+									{{item.displayName}}
+								</button>
+								<app-menu-item #menu [items]="item.children"></app-menu-item>
+							</span>
+							<!-- Leaf node buttons here -->
+							<span *ngIf="!item.children || item.children.length === 0">
+								<a mat-button [routerLink]="item.route">
+									{{item.displayName}}
+								</a>
+							</span>
+						</span>
+					</mat-toolbar>
 
 				</div>
 
 
 			</mat-toolbar-row>
 		</mat-toolbar>
+
+		
 
 	</mat-sidenav-content>
 </mat-sidenav-container>
