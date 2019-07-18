@@ -11,63 +11,15 @@
 		<mat-toolbar color="primary">Menu</mat-toolbar>
 		<!---<button mat-button (click)="sidenav.toggle()">Toggle</button> -->
 
-		<!--
-		<mat-nav-list>
-			<a mat-list-item href="#">Link 1</a>
-
-			<a mat-list-item>Link 2</a>
-
-			<mat-accordion>
-				<mat-expansion-panel>
-					<mat-expansion-panel-header>
-						<mat-panel-title>
-							SubMenu 3
-						</mat-panel-title>
-					</mat-expansion-panel-header>
-
-					<a mat-list-item href="#">SubMenu 3.1</a>
-
-				</mat-expansion-panel>
-			</mat-accordion>
-
-			<mat-accordion>
-				<mat-expansion-panel>
-					<mat-expansion-panel-header>
-						<mat-panel-title>
-							Sub Menu 4
-						</mat-panel-title>
-					</mat-expansion-panel-header>
-
-					<mat-accordion>
-						<mat-expansion-panel>
-							<mat-expansion-panel-header>
-								<mat-panel-title>
-									Sub Menu 4.1
-								</mat-panel-title>
-							</mat-expansion-panel-header>
-
-							<a mat-list-item href="#">Sub Menu 4.1.1</a>
-							
-						</mat-expansion-panel>
-					</mat-accordion>
-					
-				</mat-expansion-panel>
-			</mat-accordion>
-
-
-			<a mat-list-item href="#">Link 3</a>
-		</mat-nav-list>
-		-->
-		 
-		<mat-nav-list>
+		
+		<mat-nav-list class="main-sidenav-menu">
 			<ng-container *ngFor="let item of navItems">
 
-				
-				
 				<mat-accordion *ngIf="item.children && item.children.length > 0">
-					<mat-expansion-panel>
+					<mat-expansion-panel [disabled]="item.disabled">
 						<mat-expansion-panel-header>
 							<mat-panel-title>
+								<mat-icon>{{item.iconName}}</mat-icon>
 								{{item.displayName}}
 							</mat-panel-title>
 						</mat-expansion-panel-header>
@@ -78,7 +30,10 @@
 				</mat-accordion>
 				
 				<ng-container *ngIf="!item.children || item.children.length === 0">
-					<a mat-list-item [routerLink]="item.route">
+					<a mat-list-item [routerLink]="item.route" [ngClass]="{'isDisabled' : item.disabled}">
+						<mat-icon>
+							{{item.iconName}}
+						</mat-icon>
 						{{item.displayName}}
 					</a>
 				</ng-container>
@@ -86,32 +41,13 @@
 			</ng-container>
 		</mat-nav-list>
 
-		<!--
-		<mat-toolbar class="" color="primary">
-			<span *ngFor="let item of navItems">
-
-				<span *ngIf="item.children && item.children.length > 0">
-					<button mat-button [matMenuTriggerFor]="menu.childMenu" [disabled]="item.disabled">
-						{{item.displayName}}
-					</button>
-					<app-sidenav-item #menu [items]="item.children"></app-sidenav-item>
-				</span>
-
-				<span *ngIf="!item.children || item.children.length === 0">
-					<a mat-button [routerLink]="item.route">
-						{{item.displayName}}
-					</a>
-				</span>
-			</span>
-		</mat-toolbar>
-		-->
-
 	</mat-sidenav>
 
+
+	<!-- App Content -->
 	<mat-sidenav-content>
 
 		<mat-toolbar color="primary" class="container-fluid">
-
 			<mat-toolbar-row class="container-fluid">
 
 				<div class="col-12 col-md-auto px-0">
@@ -126,40 +62,43 @@
 					</button>		
 				</div>
 				
+				<!-- Nav Right Toolbar -->
 				<div class="row d-none d-md-flex ml-md-auto">
-
-					<!-- 
-					<a mat-button href="https://www.facebook.com/">
-							<i class="fab fa-facebook-f"></i>
-					</a>
-
-					<a mat-button [matMenuTriggerFor]="animals">
-						Animal index
-					</a>
-
-					<mat-menu #animals="matMenu">
-						<a mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</a>
-					</mat-menu>
-
-					<mat-menu #invertebrates="matMenu">
-						<a mat-menu-item>Insects</a>
-						<a mat-menu-item>Molluscs</a>
-						<a mat-menu-item>Crustaceans</a>
-					</mat-menu>
-					-->
 					
 					<mat-toolbar class="" color="primary">
 						<span *ngFor="let item of navItems">
 							<!-- Handle branch node buttons here -->
 							<span *ngIf="item.children && item.children.length > 0">
-								<button mat-button [matMenuTriggerFor]="menu.childMenu" [disabled]="item.disabled">
+								<button mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=item.disabled class="isDisabled" [disabled]="item.disabled">
+									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
+									<ng-template #otherIcon>
+										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
+									</ng-template>
 									{{item.displayName}}
 								</button>
+								<a mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=!item.disabled>
+									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
+									<ng-template #otherIcon>
+										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
+									</ng-template>
+									{{item.displayName}}
+								</a>
 								<app-menu-item #menu [items]="item.children"></app-menu-item>
 							</span>
 							<!-- Leaf node buttons here -->
 							<span *ngIf="!item.children || item.children.length === 0">
-								<a mat-button [routerLink]="item.route">
+								<button mat-button *ngIf=item.disabled class="isDisabled" [disabled]="item.disabled">
+									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
+									<ng-template #otherIcon>
+										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
+									</ng-template>
+									{{item.displayName}}
+								</button>
+								<a mat-button *ngIf=!item.disabled>
+									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
+									<ng-template #otherIcon>
+										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
+									</ng-template>
 									{{item.displayName}}
 								</a>
 							</span>
@@ -167,12 +106,11 @@
 					</mat-toolbar>
 
 				</div>
-
+				<!-- /Nav Right Toolbar -->
 
 			</mat-toolbar-row>
 		</mat-toolbar>
 
-		
 
 	</mat-sidenav-content>
 </mat-sidenav-container>

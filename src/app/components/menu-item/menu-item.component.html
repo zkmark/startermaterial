@@ -1,19 +1,43 @@
 <mat-menu #childMenu="matMenu" [overlapTrigger]="false">
-  <span *ngFor="let child of items">
-    <!-- Handle branch node menu items -->
-    <span *ngIf="child.children && child.children.length > 0">
-      <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
-        <mat-icon>{{child.iconName}}</mat-icon>
-        <span>{{child.displayName}}</span>
-      </button>
-      <app-menu-item #menu [items]="child.children"></app-menu-item>
-    </span>
-    <!-- Handle leaf node menu items -->
-    <span *ngIf="!child.children || child.children.length === 0">
-      <button mat-menu-item [routerLink]="child.route">
-        <mat-icon>{{child.iconName}}</mat-icon>
-        <span>{{child.displayName}}</span>
-      </button>
-    </span>
-  </span>
+	<span *ngFor="let child of items">
+		<!-- Handle branch node menu items -->
+		<span *ngIf="child.children && child.children.length > 0">
+
+			<button mat-menu-item [matMenuTriggerFor]="menu.childMenu" *ngIf=child.disabled class="isDisabled"
+				[disabled]="child.disabled">
+				<mat-icon *ngIf='isMaterialICon(child.iconName); else otherIcon'>{{child.iconName}}</mat-icon>
+				<ng-template #otherIcon>
+					<span *ngIf='child.iconName' [innerHTML]="child.iconName"></span>
+				</ng-template>
+				{{child.displayName}}
+			</button>
+			<a mat-menu-item [matMenuTriggerFor]="menu.childMenu" *ngIf=!child.disabled>
+				<mat-icon *ngIf='isMaterialICon(child.iconName); else otherIcon'>{{child.iconName}}</mat-icon>
+				<ng-template #otherIcon>
+					<span *ngIf='child.iconName' [innerHTML]="child.iconName"></span>
+				</ng-template>
+				{{child.displayName}}
+			</a>
+
+			<app-menu-item #menu [items]="child.children"></app-menu-item>
+		</span>
+		<!-- Handle leaf node menu items -->
+		<span *ngIf="!child.children || child.children.length === 0">
+
+			<button mat-menu-item *ngIf=child.disabled class="isDisabled" [disabled]="child.disabled">
+				<mat-icon *ngIf='isMaterialICon(child.iconName); else otherIcon'>{{child.iconName}}</mat-icon>
+				<ng-template #otherIcon>
+					<span *ngIf='child.iconName' [innerHTML]="child.iconName"></span>
+				</ng-template>
+				{{child.displayName}}
+			</button>
+			<a mat-menu-item *ngIf=!child.disabled>
+				<mat-icon *ngIf='isMaterialICon(child.iconName); else otherIcon'>{{child.iconName}}</mat-icon>
+				<ng-template #otherIcon>
+					<span *ngIf='child.iconName' [innerHTML]="child.iconName"></span>
+				</ng-template>
+				{{child.displayName}}
+			</a>
+		</span>
+	</span>
 </mat-menu>

@@ -22,17 +22,30 @@
 
 -->
 
-<mat-menu #childMenu="matMenu" [overlapTrigger]="false">
-	<span *ngFor="let child of items">
+<ng-container #childMenuNav>
+	<ng-container *ngFor="let child of items">
 
-		<span *ngIf="child.children && child.children.length > 0">
-			<button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
+		<mat-accordion *ngIf="child.children && child.children.length > 0">
+			<mat-expansion-panel [disabled]="child.disabled">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<mat-icon>{{child.iconName}}</mat-icon>
+						{{child.displayName}}
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+
+				<app-sidenav-item #menu [items]="child.children"></app-sidenav-item>
+
+			</mat-expansion-panel>
+		</mat-accordion>
+
+		<ng-container *ngIf="!child.children || child.children.length === 0">
+			<a mat-list-item [routerLink]="child.route"  [ngClass]="{'isDisabled' : child.disabled}">
 				<mat-icon>{{child.iconName}}</mat-icon>
-				<span>{{child.displayName}}</span>
-			</button>
-			<app-sidenav-item #menu [items]="child.children"></app-sidenav-item>
-		</span>
+				{{child.displayName}}
+			</a>
+		</ng-container>
 
-	</span>
-</mat-menu>
+	</ng-container>
+</ng-container>
 

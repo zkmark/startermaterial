@@ -12,7 +12,7 @@ import { NavItem } from 'src/app/interfaces/nav-item';
 export class SidenavItemComponent implements OnInit {
 
   @Input() items: NavItem[];
-  @ViewChild('childMenu', {static: true}) public childMenu;
+  @ViewChild('childMenuNav', {static: true}) public childMenuNav;
 
   constructor(public router: Router) {
   }

@@ -9,14 +9,30 @@ import { NavItem } from 'src/app/interfaces/nav-item';
 })
 export class MenuItemComponent implements OnInit {
 
-	//https://stackblitz.com/edit/dynamic-nested-topnav-menu?file=app%2Fmenu-item%2Fmenu-item.component.ts
-  @Input() items: NavItem[];
+	//https://stackblitz.com/edit/dynamic-nested-topnav-menu
+	@Input() items: NavItem[];
   @ViewChild('childMenu', {static: true}) public childMenu;
 
   constructor(public router: Router) {
   }
 
   ngOnInit() {
-  }
+	}
+	
+	isMaterialICon(value){
+		
+		if (value) {
+			if (value.search("<i") >= 0 ) {
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+		else{
+			return false;
+		}
+
+	}
 
 }

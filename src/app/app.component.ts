@@ -13,11 +13,32 @@ export class AppComponent {
 	mode : string;
 	opened: boolean = false;
 
+	//myicon: string = '<i class="fab fa-amazon"></i>';
+	//otherIconType: string;
+
 	
+	isMaterialICon(value){
+		
+		if (value) {
+			if (value.search("<i") >= 0 ) {
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+		else{
+			return false;
+		}
+
+	}
+
+
 	navItems: NavItem[] = [
     {
       displayName: 'DevFestFL',
-			iconName: 'close',
+			iconName: '<i class="fab fa-amazon"></i>',
+			disabled: true,
 			route: '/',
 		},
     {
@@ -81,7 +102,8 @@ export class AppComponent {
         },
         {
           displayName: 'Feedback',
-          iconName: 'feedback',
+					iconName: 'feedback',
+					disabled: true,
           route: 'feedback'
         }
       ]
@@ -159,7 +181,8 @@ export class AppComponent {
             },
             {
               displayName: 'Become an Angular Tailor',
-              iconName: 'star_rate',
+							iconName: 'star_rate',
+							disabled: true,
               route: 'become-angular-tailer'
             }
           ]

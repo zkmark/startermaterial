@@ -3,47 +3,22 @@
 
 @import "./scss/bootstrap/bootstrap-grid.scss";
 
+@import "./scss/vars.scss";
+@import "./scss/material/main-sidenav.scss";
+
 
 html, body{
 	margin: 0;
 }
 
-.mat-expansion-panel-spacing{
-	
-	.mat-expansion-panel-header{
-		background: rgba(0,0,0,.04) !important;
-	}
-	
+.isDisabled {
+  color: currentColor !important;
+  cursor: not-allowed !important;
+	opacity: 0.3;
+	text-decoration: none;
 }
 
-.mat-expansion-panel-header{
-	padding-left: 16px !important;
-	border-radius: 0 !important;
-}
-
-
-.mat-expansion-panel{
-	border-radius: 0 !important;
-}
-
-.mat-expansion-panel-body {
-	padding: 0 !important;
-	
-	.mat-list-item{
-		padding-left: 16px !important;
-	}
-
-	.mat-expansion-panel-body {
-		padding-bottom: 0 !important;
-		.mat-list-item{
-			padding-left: 32px !important;
-		}
-	}
-
-	
-	.mat-expansion-panel-header-title {
-		padding-left: 16px !important;
-	}
-
+.mat-expansion-panel-header[aria-disabled=true]{
+	cursor: not-allowed !important;
 }
 
