@@ -13,6 +13,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SidenavItemComponent } from './components/menus/sidenav-item/sidenav-item.component';
 
+import { MyIconComponent } from './components/my-icon/my-icon.component';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { SidenavItemComponent } from './components/menus/sidenav-item/sidenav-it
     MainMenuComponent,
     HomeComponent,
     MenuItemComponent,
-    SidenavItemComponent
+    SidenavItemComponent,
+    MyIconComponent
   ],
   imports: [
     BrowserModule,

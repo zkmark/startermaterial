@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NavItem } from "./interfaces/nav-item";
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,9 +14,13 @@ export class AppComponent {
 	mode : string;
 	opened: boolean = false;
 
-	//myicon: string = '<i class="fab fa-amazon"></i>';
+	myicon: string = '<i class="fab fa-amazon"></i>';
+	myicon2: string = 'close';
+	myicon3: string = '';
+	myicon4: string = '<mat-icon class="example-icon" aria-hidden="false">close</mat-icon>';
 	//otherIconType: string;
 
+	
 	
 	isMaterialICon(value){
 		

@@ -1,27 +1,3 @@
-<!--
-<mat-menu #childMenu="matMenu" [overlapTrigger]="false">
-  <span *ngFor="let child of items">
-
-		<span *ngIf="child.children && child.children.length > 0">
-      <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
-        <mat-icon>{{child.iconName}}</mat-icon>
-        <span>{{child.displayName}}</span>
-      </button>
-      <app-sidenav-item #menu [items]="child.children"></app-sidenav-item>
-    </span>
-
-		<span *ngIf="!child.children || child.children.length === 0">
-      <button mat-menu-item [routerLink]="child.route">
-        <mat-icon>{{child.iconName}}</mat-icon>
-        <span>{{child.displayName}}</span>
-      </button>
-    </span>
-  </span>
-</mat-menu>
-
-
--->
-
 <ng-container #childMenuNav>
 	<ng-container *ngFor="let child of items">
 
@@ -29,7 +5,7 @@
 			<mat-expansion-panel [disabled]="child.disabled">
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						<mat-icon>{{child.iconName}}</mat-icon>
+						<app-my-icon [iconName]='child.iconName'></app-my-icon>
 						{{child.displayName}}
 					</mat-panel-title>
 				</mat-expansion-panel-header>
@@ -41,7 +17,7 @@
 
 		<ng-container *ngIf="!child.children || child.children.length === 0">
 			<a mat-list-item [routerLink]="child.route"  [ngClass]="{'isDisabled' : child.disabled}">
-				<mat-icon>{{child.iconName}}</mat-icon>
+				<app-my-icon [iconName]='child.iconName'></app-my-icon>
 				{{child.displayName}}
 			</a>
 		</ng-container>

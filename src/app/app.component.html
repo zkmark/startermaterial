@@ -6,12 +6,12 @@
 
 <mat-sidenav-container class="example-container">
 
+	<!-- Sidenav Left -->
 	<mat-sidenav #sidenav [(mode)]='mode' [(opened)]="opened" (closed)='opened=false'>
 
 		<mat-toolbar color="primary">Menu</mat-toolbar>
 		<!---<button mat-button (click)="sidenav.toggle()">Toggle</button> -->
 
-		
 		<mat-nav-list class="main-sidenav-menu">
 			<ng-container *ngFor="let item of navItems">
 
@@ -31,9 +31,7 @@
 				
 				<ng-container *ngIf="!item.children || item.children.length === 0">
 					<a mat-list-item [routerLink]="item.route" [ngClass]="{'isDisabled' : item.disabled}">
-						<mat-icon>
-							{{item.iconName}}
-						</mat-icon>
+						<app-my-icon [iconName]='item.iconName'></app-my-icon>
 						{{item.displayName}}
 					</a>
 				</ng-container>
@@ -42,7 +40,7 @@
 		</mat-nav-list>
 
 	</mat-sidenav>
-
+	<!-- /Sidenav Left -->
 
 	<!-- App Content -->
 	<mat-sidenav-content>
@@ -52,7 +50,9 @@
 
 				<div class="col-12 col-md-auto px-0">
 					<a mat-button [routerLink]="['/']">
-						Angular Starter App
+						Angular Starter App 
+						
+						<app-my-icon iconName='close'></app-my-icon>
 					</a>
 
 					<button mat-button class="d-inline-block d-md-none float-right" (click)="openSideNav('over')">
@@ -70,35 +70,23 @@
 							<!-- Handle branch node buttons here -->
 							<span *ngIf="item.children && item.children.length > 0">
 								<button mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=item.disabled class="isDisabled" [disabled]="item.disabled">
-									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
-									<ng-template #otherIcon>
-										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
-									</ng-template>
+									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</button>
 								<a mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=!item.disabled>
-									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
-									<ng-template #otherIcon>
-										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
-									</ng-template>
+									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</a>
-								<app-menu-item #menu [items]="item.children"></app-menu-item>
+								<app-menu-item #menu  [items]="item.children"></app-menu-item>
 							</span>
 							<!-- Leaf node buttons here -->
 							<span *ngIf="!item.children || item.children.length === 0">
 								<button mat-button *ngIf=item.disabled class="isDisabled" [disabled]="item.disabled">
-									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
-									<ng-template #otherIcon>
-										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
-									</ng-template>
+									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</button>
 								<a mat-button *ngIf=!item.disabled>
-									<mat-icon *ngIf='isMaterialICon(item.iconName); else otherIcon'>{{item.iconName}}</mat-icon>
-									<ng-template #otherIcon>
-										<span *ngIf='item.iconName' [innerHTML]="item.iconName" ></span>
-									</ng-template>
+									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</a>
 							</span>

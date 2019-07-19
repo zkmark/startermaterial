@@ -11,13 +11,16 @@ export class MenuItemComponent implements OnInit {
 
 	//https://stackblitz.com/edit/dynamic-nested-topnav-menu
 	@Input() items: NavItem[];
-  @ViewChild('childMenu', {static: true}) public childMenu;
+	@ViewChild('childMenu', {static: true}) public childMenu;
+	
 
   constructor(public router: Router) {
   }
 
   ngOnInit() {
 	}
+
+
 	
 	isMaterialICon(value){
 		

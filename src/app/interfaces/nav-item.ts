@@ -8,10 +8,12 @@ export interface NavItem {
 
 //Example of use https://stackblitz.com/edit/dynamic-nested-topnav-menu
 /*
-navItems: NavItem[] = [
+	
+	navItems: NavItem[] = [
     {
       displayName: 'DevFestFL',
-			iconName: 'close',
+			iconName: '<i class="fab fa-amazon"></i>',
+			disabled: true,
 			route: '/',
 		},
     {
@@ -75,7 +77,8 @@ navItems: NavItem[] = [
         },
         {
           displayName: 'Feedback',
-          iconName: 'feedback',
+					iconName: 'feedback',
+					disabled: true,
           route: 'feedback'
         }
       ]
@@ -153,7 +156,8 @@ navItems: NavItem[] = [
             },
             {
               displayName: 'Become an Angular Tailor',
-              iconName: 'star_rate',
+							iconName: 'star_rate',
+							disabled: true,
               route: 'become-angular-tailer'
             }
           ]
@@ -166,5 +170,6 @@ navItems: NavItem[] = [
       ]
     }
 	];
+	
 
 */

@@ -1,0 +1,4 @@
+<mat-icon *ngIf='isMaterialICon(iconName); else otherIcon'>{{iconName}}</mat-icon>
+<ng-template #otherIcon>
+	<span *ngIf='iconName' [innerHTML]="iconName"></span>
+</ng-template>
