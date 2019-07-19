@@ -1,15 +1,9 @@
-<!--
-	<app-main-menu>
-		<app-home></app-home>
-	</app-main-menu>
--->
-
 <mat-sidenav-container class="example-container">
 
 	<!-- Sidenav Left -->
 	<mat-sidenav #sidenav [(mode)]='mode' [(opened)]="opened" (closed)='opened=false'>
 
-		<mat-toolbar color="primary">Menu</mat-toolbar>
+		<mat-toolbar color="primary">{{sidenavTitle}}</mat-toolbar>
 		<!---<button mat-button (click)="sidenav.toggle()">Toggle</button> -->
 
 		<mat-nav-list class="main-sidenav-menu">
@@ -50,9 +44,7 @@
 
 				<div class="col-12 col-md-auto px-0">
 					<a mat-button [routerLink]="['/']">
-						Angular Starter App 
-						
-						<app-my-icon iconName='close'></app-my-icon>
+						{{appTitle}}
 					</a>
 
 					<button mat-button class="d-inline-block d-md-none float-right" (click)="openSideNav('over')">
@@ -65,7 +57,7 @@
 				<!-- Nav Right Toolbar -->
 				<div class="row d-none d-md-flex ml-md-auto">
 					
-					<mat-toolbar class="" color="primary">
+					<mat-toolbar class="main-menu-toolbar" color="primary">
 						<span *ngFor="let item of navItems">
 							<!-- Handle branch node buttons here -->
 							<span *ngIf="item.children && item.children.length > 0">
@@ -99,6 +91,10 @@
 			</mat-toolbar-row>
 		</mat-toolbar>
 
+		
+		<div class="container-fluid">
+			<router-outlet></router-outlet>
+		</div>
 
 	</mat-sidenav-content>
 </mat-sidenav-container>

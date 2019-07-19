@@ -9,35 +9,11 @@ import { NavItem } from "./interfaces/nav-item";
 	//encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-	title = 'startermaterial';
+	appTitle = 'Starter Material Angular';
+	sidenavTitle = 'Menu App'
 	
 	mode : string;
 	opened: boolean = false;
-
-	myicon: string = '<i class="fab fa-amazon"></i>';
-	myicon2: string = 'close';
-	myicon3: string = '';
-	myicon4: string = '<mat-icon class="example-icon" aria-hidden="false">close</mat-icon>';
-	//otherIconType: string;
-
-	
-	
-	isMaterialICon(value){
-		
-		if (value) {
-			if (value.search("<i") >= 0 ) {
-				return false;
-			}
-			else{
-				return true;
-			}
-		}
-		else{
-			return false;
-		}
-
-	}
-
 
 	navItems: NavItem[] = [
     {
