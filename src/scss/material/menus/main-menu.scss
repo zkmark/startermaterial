@@ -1,0 +1,26 @@
+.main-menu-toolbar{
+	.material-icons{
+		font-size: 1rem !important;
+	}
+}
+
+.mat-menu-item{
+	.fa, .fab, .fal, .far, .fas{
+		width: 24px;
+		height: 24px;
+		font-size: 21px;
+		margin-right: 16px;
+		color: rgba(0,0,0,.54);
+	}
+}
+
+.mat-expansion-panel-header[aria-disabled=true]{
+	cursor: not-allowed !important;
+}
+
+.isDisabled {
+  color: currentColor !important;
+  cursor: not-allowed !important;
+	opacity: 0.3;
+	text-decoration: none;
+}

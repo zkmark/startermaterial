@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+//Your styles
+@import "./scss/your-vars.scss";
+
+//Bootstrap
 @import "./scss/bootstrap/bootstrap-grid.scss";
 
-@import "./scss/vars.scss";
-@import "./scss/material/main-sidenav.scss";
+//Material angular
+@import "./scss/material/vars.scss";
+@import "./scss/material/menus/main-sidenav.scss";
+@import "./scss/material/menus/main-menu.scss";
+@import "./scss/material/helpers.scss";
 
 
 //Other styles
@@ -12,30 +19,6 @@ html, body{
 	margin: 0;
 }
 
-.main-menu-toolbar{
-	.material-icons{
-		font-size: 1rem !important;
-	}
-}
 
-.mat-menu-item{
-	.fa, .fab, .fal, .far, .fas{
-		width: 24px;
-		height: 24px;
-		font-size: 21px;
-		margin-right: 16px;
-		color: rgba(0,0,0,.54);
-	}
-}
 
-.isDisabled {
-  color: currentColor !important;
-  cursor: not-allowed !important;
-	opacity: 0.3;
-	text-decoration: none;
-}
-
-.mat-expansion-panel-header[aria-disabled=true]{
-	cursor: not-allowed !important;
-}
 
