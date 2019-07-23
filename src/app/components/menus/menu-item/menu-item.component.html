@@ -8,7 +8,7 @@
 				<app-my-icon [iconName]='child.iconName'></app-my-icon>
 				{{child.displayName}}
 			</button>
-			<a mat-menu-item [matMenuTriggerFor]="menu.childMenu" *ngIf=!child.disabled>
+			<a mat-menu-item [routerLink]="child.route" [matMenuTriggerFor]="menu.childMenu" *ngIf=!child.disabled>
 				<app-my-icon [iconName]='child.iconName'></app-my-icon>
 				{{child.displayName}}
 			</a>
@@ -22,7 +22,7 @@
 				<app-my-icon [iconName]='child.iconName'></app-my-icon>>
 				{{child.displayName}}
 			</button>
-			<a mat-menu-item *ngIf=!child.disabled>
+			<a mat-menu-item *ngIf=!child.disabled [routerLink]="child.route">
 				<app-my-icon [iconName]='child.iconName'></app-my-icon>
 				{{child.displayName}}
 			</a>

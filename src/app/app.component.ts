@@ -29,22 +29,22 @@ export class AppComponent {
         {
           displayName: 'Login',
           iconName: '<i class="fas fa-sign-in-alt"></i>',
-					route: '/',					
+					route: '/login',					
 				},
 				{
           displayName: 'Register',
           iconName: '<i class="fas fa-key"></i>',
-					route: '/',					
+					route: '/register',					
 				},
 				{
           displayName: 'Forgot Password',
           iconName: '<i class="fas fa-lock"></i>',
-					route: '/',					
+					route: '/recover-password',					
 				},
 				{
           displayName: 'Reset Password',
           iconName: '<i class="fas fa-unlock-alt"></i>',
-					route: '/',					
+					route: '/reset-password',					
         },
       ]
     },

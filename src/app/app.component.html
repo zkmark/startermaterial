@@ -65,7 +65,7 @@
 									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</button>
-								<a mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=!item.disabled>
+								<a mat-button [matMenuTriggerFor]="menu.childMenu" *ngIf=!item.disabled [routerLink]="item.route">
 									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</a>
@@ -77,7 +77,7 @@
 									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</button>
-								<a mat-button *ngIf=!item.disabled>
+								<a mat-button *ngIf=!item.disabled [routerLink]="item.route">
 									<app-my-icon [iconName]='item.iconName'></app-my-icon>
 									{{item.displayName}}
 								</a>

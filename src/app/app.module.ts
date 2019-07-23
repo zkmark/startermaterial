@@ -14,6 +14,7 @@ import { MenuItemComponent } from './components/menus/menu-item/menu-item.compon
 import { SidenavItemComponent } from './components/menus/sidenav-item/sidenav-item.component';
 
 import { MyIconComponent } from './components/my-icon/my-icon.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 
 
@@ -23,7 +24,8 @@ import { MyIconComponent } from './components/my-icon/my-icon.component';
     HomeComponent,
     MenuItemComponent,
     SidenavItemComponent,
-    MyIconComponent
+    MyIconComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
