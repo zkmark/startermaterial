@@ -17,164 +17,76 @@ export class AppComponent {
 
 	navItems: NavItem[] = [
     {
-      displayName: 'DevFestFL',
-			iconName: '<i class="fab fa-amazon"></i>',
+      displayName: 'Home',
+			iconName: '<i class="fas fa-home"></i>',
+			//disabled: true,
+			route: '/',
+		},
+		{
+      displayName: 'Pages User',
+      iconName: '<i class="fas fa-user"></i>',
+      children: [
+        {
+          displayName: 'Login',
+          iconName: '<i class="fas fa-sign-in-alt"></i>',
+					route: '/',					
+				},
+				{
+          displayName: 'Register',
+          iconName: '<i class="fas fa-key"></i>',
+					route: '/',					
+				},
+				{
+          displayName: 'Forgot Password',
+          iconName: '<i class="fas fa-lock"></i>',
+					route: '/',					
+				},
+				{
+          displayName: 'Reset Password',
+          iconName: '<i class="fas fa-unlock-alt"></i>',
+					route: '/',					
+        },
+      ]
+    },
+    {
+      displayName: 'Components',
+      iconName: '<i class="fas fa-cubes"></i>',
+      children: [
+        {
+          displayName: 'Css',
+          iconName: 'star_rate',
+          children: [
+            {
+              displayName: 'Component 1',
+              iconName: 'star_rate',
+              route: '/'
+            },
+          ]
+				},
+				{
+          displayName: 'Js',
+          iconName: 'star_rate',
+          children: [
+            {
+              displayName: 'Component 1',
+              iconName: 'star_rate',
+              route: '/'
+            },
+          ]
+				},
+        {
+          displayName: 'Feedback',
+          iconName: 'feedback',
+          route: 'feedback'
+        }
+      ]
+		},
+		{
+      displayName: 'Disabled',
+			iconName: '<i class="fas fa-user-lock"></i>',
 			disabled: true,
 			route: '/',
 		},
-    {
-      displayName: 'Disney',
-      iconName: 'close',
-      children: [
-        {
-          displayName: 'Sessions',
-          iconName: 'speaker_notes',
-          children: [
-            {
-              displayName: 'Create Enterprise UIs',
-              iconName: 'star_rate',
-              route: 'material-design'
-            },
-            {
-              displayName: 'What\'s up with the Web?',
-              iconName: 'star_rate',
-              route: 'what-up-web'
-            },
-            {
-              displayName: 'My ally, the CLI',
-              iconName: 'star_rate',
-              route: 'my-ally-cli'
-            },
-            {
-              displayName: 'Become an Angular Tailor',
-              iconName: 'star_rate',
-              route: 'become-angular-tailer'
-            }
-          ]
-        },
-        {
-          displayName: 'Feedback',
-          iconName: 'feedback',
-          route: 'feedback'
-        }
-      ]
-    },
-    {
-      displayName: 'Orlando',
-      iconName: 'close',
-      children: [
-        {
-          displayName: 'Speakers',
-          iconName: 'group',
-          children: [
-            {
-              displayName: 'Michael Prentice',
-              iconName: 'person',
-              route: 'michael-prentice',
-              children: [
-                {
-                  displayName: 'Create Enterprise UIs',
-                  iconName: 'star_rate',
-                  route: 'material-design'
-                }
-              ]
-            },
-          ]
-        },
-        {
-          displayName: 'Feedback',
-					iconName: 'feedback',
-					disabled: true,
-          route: 'feedback'
-        }
-      ]
-    },
-    {
-      displayName: 'Maleficent',
-      disabled: true,
-      iconName: 'close',
-      children: [
-        {
-          displayName: 'Speakers',
-          iconName: 'group',
-          children: [
-            {
-              displayName: 'Michael Prentice',
-              iconName: 'person',
-              route: 'michael-prentice',
-              children: [
-                {
-                  displayName: 'Create Enterprise UIs',
-                  iconName: 'star_rate',
-                  route: 'material-design'
-                }
-              ]
-            },
-            {
-              displayName: 'Stephen Fluin',
-              iconName: 'person',
-              route: 'stephen-fluin',
-              children: [
-                {
-                  displayName: 'What\'s up with the Web?',
-                  iconName: 'star_rate',
-                  route: 'what-up-web'
-                }
-              ]
-            },
-            {
-              displayName: 'Mike Brocchi',
-              iconName: 'person',
-              route: 'mike-brocchi',
-              children: [
-                {
-                  displayName: 'My ally, the CLI',
-                  iconName: 'star_rate',
-                  route: 'my-ally-cli'
-                },
-                {
-                  displayName: 'Become an Angular Tailor',
-                  iconName: 'star_rate',
-                  route: 'become-angular-tailer'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          displayName: 'Sessions',
-          iconName: 'speaker_notes',
-          children: [
-            {
-              displayName: 'Create Enterprise UIs',
-              iconName: 'star_rate',
-              route: 'material-design'
-            },
-            {
-              displayName: 'What\'s up with the Web?',
-              iconName: 'star_rate',
-              route: 'what-up-web'
-            },
-            {
-              displayName: 'My ally, the CLI',
-              iconName: 'star_rate',
-              route: 'my-ally-cli'
-            },
-            {
-              displayName: 'Become an Angular Tailor',
-							iconName: 'star_rate',
-							disabled: true,
-              route: 'become-angular-tailer'
-            }
-          ]
-        },
-        {
-          displayName: 'Feedback',
-          iconName: 'feedback',
-          route: 'feedback'
-        }
-      ]
-    }
 	];
 	
 	openSideNav(mode: string = 'over'){

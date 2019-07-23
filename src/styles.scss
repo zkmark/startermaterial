@@ -7,6 +7,7 @@
 @import "./scss/material/main-sidenav.scss";
 
 
+//Other styles
 html, body{
 	margin: 0;
 }
@@ -14,6 +15,16 @@ html, body{
 .main-menu-toolbar{
 	.material-icons{
 		font-size: 1rem !important;
+	}
+}
+
+.mat-menu-item{
+	.fa, .fab, .fal, .far, .fas{
+		width: 24px;
+		height: 24px;
+		font-size: 21px;
+		margin-right: 16px;
+		color: rgba(0,0,0,.54);
 	}
 }
 

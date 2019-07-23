@@ -20,22 +20,6 @@ export class MenuItemComponent implements OnInit {
   ngOnInit() {
 	}
 
-
 	
-	isMaterialICon(value){
-		
-		if (value) {
-			if (value.search("<i") >= 0 ) {
-				return false;
-			}
-			else{
-				return true;
-			}
-		}
-		else{
-			return false;
-		}
-
-	}
 
 }
