@@ -15,6 +15,9 @@ import { SidenavItemComponent } from './components/menus/sidenav-item/sidenav-it
 
 import { MyIconComponent } from './components/my-icon/my-icon.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
 
 
 
@@ -25,7 +28,10 @@ import { LoginComponent } from './pages/auth/login/login.component';
     MenuItemComponent,
     SidenavItemComponent,
     MyIconComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
